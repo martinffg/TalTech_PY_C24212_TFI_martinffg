@@ -1,0 +1,61 @@
+#Estas Queries las usamos para crear, modificar o eliminar una tabla dentro de una Base de Datos
+
+CREATE TABLE IF NOT EXISTS productos (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nombre TEXT NOT NULL,
+                    descripcion TEXT,
+                    cantidad INTEGER NOT NULL,
+                    precio REAL NOT NULL,
+                    categoria TEXT)
+
+ALTER TABLE productos ADD COLUMN nueva_columna TIPO_DE_DATO;
+
+Eliminar una tabla
+DROP TABLE IF EXISTS productos ;
+
+#Estas Queries las usamos para realizar consultas típicas a una tabla:
+#C (create) - R (read) - U (update) - D (delete)
+
+INSERT INTO productos (nombre, cantidad) VALUES ('manzana', 30);
+
+SELECT * FROM productos;
+
+SELECT nombre, cantidad FROM productos WHERE cantidad > 25;
+
+UPDATE productos SET cantidad = 20  WHERE id = 1;
+
+DELETE FROM productos WHERE id = 1;
+
+SELECT * FROM productos ORDER BY cantidad DESC;
+
+SELECT * FROM productos LIMIT 5;
+
+SELECT COUNT(*) FROM productos;
+
+
+
+DB PARA EL TRABAJO FINAL:
+NOMBRE DB: inventario.db
+
+Campos: (id,nombre, descripción,cantidad, precio, categoría)
+
+Crear una base de datos SQLite llamada 'inventario.db' para almacenar los datos de los productos. 
+● La tabla 'productos' debe contener las siguientes columnas:
+
+● 'id': Identificador único del producto (clave primaria, autoincremental).
+● 'nombre': Nombre del producto (texto, no nulo).
+● 'descripcion': Breve descripción del producto (texto).
+● 'cantidad': Cantidad disponible del producto (entero, no nulo).
+● 'precio': Precio del producto (real, no nulo).
+● 'categoria': Categoría a la que pertenece el producto (texto).
+
+
+#sql para crear la tabla
+
+CREATE TABLE IF NOT EXISTS productos (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nombre TEXT NOT NULL,
+                    descripcion TEXT,
+                    cantidad INTEGER NOT NULL,
+                    precio NUMERIC NOT NULL,
+                    categoria TEXT);
